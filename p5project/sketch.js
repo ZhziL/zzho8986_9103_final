@@ -4,7 +4,7 @@ let segments = [];
 let drawSegments = true;
 let imgDrwPrps = {aspect: 0, width: 0, height: 0, xOffset: 0, yOffset: 0};
 let canvasAspectRatio = 0;
-let perlinNoiseOffset = 20;
+let perlinNoiseOffset = 25;
 
 // Load the image and create segments
 function preload() {
@@ -135,6 +135,6 @@ class ImageSegment {
     noStroke();
     fill(this.srcImgSegColour);
     // circle(this.drawXPos + this.drawWidth / 2, this.drawYos + this.drawHeight / 2, this.drawWidth);
-    rect(this.drawXPos, this.drawYos, this.drawWidth - 5, this.drawHeight - 5);
+    rect(this.drawXPos, this.drawYos, this.drawWidth - 7, this.drawHeight - 7);
   }
 }
