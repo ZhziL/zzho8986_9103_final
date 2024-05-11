@@ -4,7 +4,8 @@ let segments = [];
 let drawSegments = true;
 let imgDrwPrps = {aspect: 0, width: 0, height: 0, xOffset: 0, yOffset: 0};
 let canvasAspectRatio = 0;
-let perlinNoiseOffset = 25;
+let perlinNoiseOffset = 25; // Offset for Perlin noise
+
 
 // Load the image and create segments
 function preload() {
@@ -40,7 +41,6 @@ function draw() {
       segment.update();
       segment.draw();
     });
-    drawConnections();
   } else {
     image(img, imgDrwPrps.xOffset, imgDrwPrps.yOffset, imgDrwPrps.width, imgDrwPrps.height);
   }
@@ -79,23 +79,6 @@ function calculateImageDrawProps() {
     imgDrwPrps.xOffset = 0;
     imgDrwPrps.yOffset = 0;
   }
-}
-
-// Draw connections between segments
-function drawConnections() {
-  segments.forEach(segment => {
-    // Connect to right and bottom neighbors only to avoid duplicates
-    let rightNeighbor = segments.find(s => s.rowPosition === segment.rowPosition && s.columnPosition === segment.columnPosition + 1);
-    let bottomNeighbor = segments.find(s => s.rowPosition === segment.rowPosition + 1 && s.columnPosition === segment.columnPosition);
-    [rightNeighbor, bottomNeighbor].forEach(neighbor => {
-      if (neighbor) {
-        stroke(segment.srcImgSegColour);
-        strokeWeight(2);
-        line(segment.drawXPos + segment.drawWidth / 2, segment.drawYPos + segment.drawHeight / 2,
-             neighbor.drawXPos + neighbor.drawWidth / 2, neighbor.drawYPos + neighbor.drawHeight / 2);
-      }
-    });
-  });
 }
 
 class ImageSegment {

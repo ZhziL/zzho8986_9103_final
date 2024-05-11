@@ -1,10 +1,10 @@
 # zzho8986_9103_final
 
-## Information of Coding
+## Instructions of Coding
 This coding using  Perlin Noise Generator from [Github Repositories](https://github.com/joeiddon/perlin), all of the point will be randomly move in a limit area and randomlly change the radius. But the colour would be using p5.js to getting each segment centre's color, to make sure using Perlin Noise would still showing the image by using random points.
 
-## Instructions on how to interact with the work
-Perlin noise randomness is used, which extracts colour from each segment, and then moves randomly within the range and randomly moves the size. You can achieve random ranges of size by changing this piece of code:
+## Details of individual approach to animating the group code
+By obtaining the segment that the group code has been prepared, perform secondary editing. Perlin noise randomness is used, including easing, which extracts colour from each segment, and then moves randomly within the range and randomly moves the size. You can achieve random ranges of size by changing this piece of code:
 
 ```
   draw() {

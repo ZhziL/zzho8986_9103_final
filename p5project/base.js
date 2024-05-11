@@ -38,7 +38,6 @@ function draw() {
     segments.forEach(segment => {
       segment.draw();
     });
-    drawConnections();
   } else {
     image(img, imgDrwPrps.xOffset, imgDrwPrps.yOffset, imgDrwPrps.width, imgDrwPrps.height);
   }
@@ -79,23 +78,6 @@ function calculateImageDrawProps() {
   }
 }
 
-// Draw connections between segments
-function drawConnections() {
-  segments.forEach(segment => {
-    // Connect to right and bottom neighbors only to avoid duplicates
-    let rightNeighbor = segments.find(s => s.rowPosition === segment.rowPosition && s.columnPosition === segment.columnPosition + 1);
-    let bottomNeighbor = segments.find(s => s.rowPosition === segment.rowPosition + 1 && s.columnPosition === segment.columnPosition);
-    [rightNeighbor, bottomNeighbor].forEach(neighbor => {
-      if (neighbor) {
-        stroke(segment.srcImgSegColour);
-        strokeWeight(2);
-        line(segment.drawXPos + segment.drawWidth / 2, segment.drawYPos + segment.drawHeight / 2,
-             neighbor.drawXPos + neighbor.drawWidth / 2, neighbor.drawYPos + neighbor.drawHeight / 2);
-      }
-    });
-  });
-}
-
 class ImageSegment {
 
   // Initialize the segment with its position and average colour
@@ -112,8 +94,6 @@ class ImageSegment {
     this.drawXPos = this.columnPosition * this.drawWidth + imgDrwPrps.xOffset;
     this.drawYos = this.rowPosition * this.drawHeight + imgDrwPrps.yOffset;
   }
-
-
 
   // Draw the segment as a circle with the average colour of the segment
   draw() {
