@@ -54,7 +54,9 @@ function keyPressed() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   calculateImageDrawProps();
-  segments.forEach(segment => segment.calculateSegDrawProps());
+  segments.forEach(function(segment) {
+    segment.calculateSegDrawProps();
+  });
 }
 
 // Calculate the drawing properties of the image

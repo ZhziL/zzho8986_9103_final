@@ -5,7 +5,7 @@ let drawSegments = true;
 let imgDrwPrps = {aspect: 0, width: 0, height: 0, xOffset: 0, yOffset: 0};
 let canvasAspectRatio = 0;
 let perlinNoiseOffset = 20; // Offset for Perlin noise
-let easing = 0.1; // 缓动因子
+let easing = 0.1; 
 
 // Load the image and create segments
 function preload() {
@@ -13,12 +13,17 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  imgDrwPrps.aspect = img.width / img.height;
+   // following the window width and height to create the canvas
+  resizeCanvas(windowWidth, windowHeight);
+  segments.forEach(function(segment){
+    segment.calculateSegDrawProps();
+  })
+
+  imgDrwPrps.aspect = img.width / img.height; //get the aspect ratio of the image
   calculateImageDrawProps();
 
-  let segmentWidth = img.width / numSegments;
-  let segmentHeight = img.height / numSegments;
+  let segmentWidth = img.width / numSegments; //get the width of the segment
+  let segmentHeight = img.height / numSegments; //get the height of the segment
 
   // Create segments
   for (let y = 0; y < numSegments; y++) {
@@ -30,14 +35,20 @@ function setup() {
       segments.push(segment);
     }
   }
-  segments.forEach(segment => segment.calculateSegDrawProps());
+
+  // Calculate the drawing properties of the segments
+  segments.forEach(function(segment) {
+    segment.calculateSegDrawProps();
+  })
 }
 
 // Draw the segments or the image
 function draw() {
   background(50);
+
+   // Draw the image
   if (drawSegments) {
-    segments.forEach(segment => {
+    segments.forEach(function(segment) {
       segment.move();
       segment.draw();
     });
@@ -51,13 +62,6 @@ function keyPressed() {
   if (key === " ") {
     drawSegments = !drawSegments;
   }
-}
-
-// Resize the canvas and recalculate the drawing properties of the image
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  calculateImageDrawProps();
-  segments.forEach(segment => segment.calculateSegDrawProps());
 }
 
 // Calculate the drawing properties of the image
