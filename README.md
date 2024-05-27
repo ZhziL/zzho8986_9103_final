@@ -27,8 +27,17 @@ The source of inspiration mainly combines the segments learned in week 7 and wee
 
 ## Iteration
 Regarding iterative design, because the Perlin Noise part was completed earlier, this part of the iteration is incomplete. However, there are only some screenshots because of communication with the team members. The initial idea was to use Emily Kame Kngwarreye's 'Ntange II (Grass)' combined with circles to design, but later found that the displayed effect was not good (probably because the overall tone is similar, it is difficult to see when the result is output) is this painting). Later, I switched the artwork to the 'Wheels of fortune' by Pacita Abad, which I have chosen now. I used several shapes, including the previous circle, and finally found a square shape with reduced side lengths, which can naturally show the design of the original work. The content to be realized mainly revolves around the original circle design, whose radius can be changed. However, considering that the team members may need to adjust the radius through the sound obtained, the design of random radius length was canceled at a later stage. Later, the final output effect was changed to a square (of course, the segments can also be scaled by changing the width and height of the square)
-![Iteration 1](/image/iteration1.png)
-![Iteration 2](/image/iteration2.png)
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div style="text-align: center; margin-right: 20px;">
+    <img src="image/iteration1.png" alt="Week 10 tut photo" width="254" height="281">
+    <p>Week 10 tutorial part 4</p>
+  </div>
+  <div style="text-align: center;">
+    <img src="image/iteration2.png" alt="Week 7 tut photo" width="312" height="287">
+    <p>Week 7 tutorial</p>
+  </div>
+</div>
 
 
 ## Code analysis
@@ -39,8 +48,10 @@ By obtaining the segment that the group code has been prepared, perform secondar
 ```
 *It is set here to 25, which mainly sets the range of movement. This range has been tested and cannot exceed 50. When it exceeds 50, the original image will not be visible in the generated random movement, and because the range becomes more extensive, there will be an overall offset. (There is no problem with the code itself, but because the range becomes more extensive, the movable range of each segment also becomes more extensive, and the whole may visually shift)*
 
-#### Main functional explanation and implementation logic
-The entire design is implemented through the class below to make the rectangle move (the code below is also taken from the function in this class). anyway, to be easy to say, the position information of x and y is randomly calculated through Perlin noise and smoothed through an easing move.
+#### __Main functional explanation and implementation logic__
+
+_This class primarily implements the use of Perlin Noise to animate a rectangle. First, it determines the colour to be displayed by the segment through the function constructor and sets the initial variables. The function calculateSegDrawProps then calculates the width and height of each segment and the x and y positions. The move function computes the position of the segment and the position to be moved and sets the movement speed and range. Finally, the draw function renders the moving segment. The entire design, implemented through the class below, makes the rectangle move. The position information of x and y is randomly calculated through Perlin noise and smoothed through an easing move._
+
 ```
 class ImageSegment {
 
