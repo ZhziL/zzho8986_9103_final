@@ -34,7 +34,7 @@ Regarding iterative design, because the Perlin Noise part was completed earlier,
     <p>Week 10 tutorial part 4</p>
   </div>
   <div style="text-align: center;">
-    <img src="image/iteration2.gif" alt="Week 7 tut photo" width="312" height="287">
+    <img src="image/iteration2.png" alt="Week 7 tut photo" width="312" height="287">
     <p>Week 7 tutorial</p>
   </div>
 </div>
