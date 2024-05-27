@@ -3,6 +3,9 @@
 ## Instructions of Coding
 This coding using  Perlin Noise Generator from [Github Repositories](https://github.com/joeiddon/perlin), all of the point will be randomly move in a limit area and randomlly change the radius. But the colour would be using p5.js to getting each segment centre's color, to make sure using Perlin Noise would still showing the image by using random points.
 
+Because it was completed before the tutorial part, I searched and learned on GitHub and referenced an online js document through HTML (this ensures that the document is not local, even if you switch to different devices) also be displayed usually), and then use Perlin noise inside the p5.js document. This part designed a class named ImageSegment, which has four functions: getting the colour for each segment, calculating the size and position, setting the position and speed, and drawing the segment. Regarding the part that adapts to the screen, in the setup() function at the top, get the windowWidth and windowHeight to keep it centred.
+
+
 ## Details of individual approach to animating the group code
 The code mainly uses Perlin Noise to obtain random quantities and then inserts them into x and y. Different from other team members, this one has a function that allows the rectangle to move irregularly and randomly.
 
@@ -10,12 +13,19 @@ The code mainly uses Perlin Noise to obtain random quantities and then inserts t
 The source of inspiration mainly combines the segments learned in week 7 and week 10, part 4 using Perlin noise random numbers to create random & smooth movements. I reduced each segment and tried different shapes and methods. Finally, I put each segment into the array,  used Perlin noise random numbers to position each segment's x & y, and then used Perlin noise to make each segment move randomly. After controlling the quantity and size, the effect is as expected. Regarding size, colour, etc., it was mainly considered that other team members might use this function, so there was no random size transformation, and only the smooth movement of random x and y points was designed. In this way, other team members may be able to change the width and height to achieve other effects.
 
 ![Week 10 tut photo](/image/wk10.gif)
+<img src="/image/wk10.gif" alt="Week 10 tut photo" width="300" height="200">
+
 Week 10 tutorial part 4
 
 ![Week 7 tut photo](/image/wk7.png)
 Week 7 tutorial
 
 *If one needs to change the width and height, the way is the same as changing the x-coordinate and y-coordinate, implanting a random number of Perlin noises, and then smoothly increasing or decreasing the size.*
+
+## Iteration
+Regarding iterative design, because the Perlin Noise part was completed earlier, this part of the iteration is incomplete. However, there are only some screenshots because of communication with the team members. The initial idea was to use Emily Kame Kngwarreye's 'Ntange II (Grass)' combined with circles to design, but later found that the displayed effect was not good (probably because the overall tone is similar, it is difficult to see when the result is output) is this painting). Later, I switched the artwork to the 'Wheels of fortune' by Pacita Abad, which I have chosen now. I used several shapes, including the previous circle, and finally found a square shape with reduced side lengths, which can naturally show the design of the original work. The content to be realized mainly revolves around the original circle design, whose radius can be changed. However, considering that the team members may need to adjust the radius through the sound obtained, the design of random radius length was canceled at a later stage. Later, the final output effect was changed to a square (of course, the segments can also be scaled by changing the width and height of the square)
+![Iteration 1](/image/iteration1.png)
+![Iteration 2](/image/iteration2.png)
 
 
 ## Code analysis
