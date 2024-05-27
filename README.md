@@ -12,13 +12,16 @@ The code mainly uses Perlin Noise to obtain random quantities and then inserts t
 ## Inspiration
 The source of inspiration mainly combines the segments learned in week 7 and week 10, part 4 using Perlin noise random numbers to create random & smooth movements. I reduced each segment and tried different shapes and methods. Finally, I put each segment into the array,  used Perlin noise random numbers to position each segment's x & y, and then used Perlin noise to make each segment move randomly. After controlling the quantity and size, the effect is as expected. Regarding size, colour, etc., it was mainly considered that other team members might use this function, so there was no random size transformation, and only the smooth movement of random x and y points was designed. In this way, other team members may be able to change the width and height to achieve other effects.
 
-![Week 10 tut photo](/image/wk10.gif)
-<img src="/image/wk10.gif" alt="Week 10 tut photo" width="300" height="200">
-
-Week 10 tutorial part 4
-
-![Week 7 tut photo](/image/wk7.png)
-Week 7 tutorial
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div style="text-align: center; margin-right: 20px;">
+    <img src="image/wk10.gif" alt="Week 10 tut photo" width="293" height="180">
+    <p>Week 10 tutorial part 4</p>
+  </div>
+  <div style="text-align: center;">
+    <img src="image/wk7.png" alt="Week 7 tut photo" width="262" height="390">
+    <p>Week 7 tutorial</p>
+  </div>
+</div>
 
 *If one needs to change the width and height, the way is the same as changing the x-coordinate and y-coordinate, implanting a random number of Perlin noises, and then smoothly increasing or decreasing the size.*
 
