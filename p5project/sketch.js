@@ -13,12 +13,7 @@ function preload() {
 }
 
 function setup() {
-   // following the window width and height to create the canvas
-  resizeCanvas(windowWidth, windowHeight);
-  segments.forEach(function(segment){
-    segment.calculateSegDrawProps();
-  })
-
+  createCanvas(windowWidth, windowHeight);
   imgDrwPrps.aspect = img.width / img.height; //get the aspect ratio of the image
   calculateImageDrawProps();
 
@@ -55,6 +50,15 @@ function draw() {
   } else {
     image(img, imgDrwPrps.xOffset, imgDrwPrps.yOffset, imgDrwPrps.width, imgDrwPrps.height);
   }
+}
+
+// make sure the image is drawn in the middle of the screen
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  calculateImageDrawProps();
+  segments.forEach(function(segment) {
+    segment.calculateSegDrawProps();
+  });
 }
 
 // Toggle the drawing of the segments
