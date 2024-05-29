@@ -121,3 +121,6 @@ move() {
 }
 ```
 
+## Resource
+Most of the code comes from the tutorial course, but some is from the Internet, which is the GitHub link mentioned at the beginning, understand its usage and logic through Internet search and ChatGPT (no direct editing with ChatGPT), and then write the code.
+[Github Repositories Link](https://github.com/joeiddon/perlin)
